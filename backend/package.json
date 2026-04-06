@@ -1,0 +1,23 @@
+{
+  "name": "api-monitoring-system",
+  "version": "1.0.0",
+  "description": "An application for monitoring api of various systems  with authentication and authorization of tenants. ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/armaanchakla/api-monitoring-system.git"
+  },
+  "author": "Md. Armaan Hossain Chaklader",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/armaanchakla/api-monitoring-system/issues"
+  },
+  "homepage": "https://github.com/armaanchakla/api-monitoring-system#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
