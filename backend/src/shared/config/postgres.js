@@ -13,7 +13,7 @@ class PostgresConnection {
   }
 
   /**
-   * Connect PostgreSQL
+   * Pool Config
    */
   getPool() {
     if (!this.pool) {
@@ -38,7 +38,7 @@ class PostgresConnection {
   }
 
   /**
-   * Test PostgreSQL
+   * Connect PostgreSQL
    */
   async testConnection() {
     try {

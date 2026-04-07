@@ -10,7 +10,19 @@ const logger = winston.createLogger({
     winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     winston.format.errors({ stack: true }),
     winston.format.splat(),
-    winston.format.json(),
+
+    // winston.format.json(),
+    winston.format.printf((info) => {
+      const log = {
+        timestamp: info.timestamp,
+        level: info.level,
+        service: info.service || "api-monitoring",
+        message: info.message,
+        ...info,
+      };
+
+      return JSON.stringify(log);
+    }),
   ),
 
   defaultMeta: { service: "api-monitoring" },

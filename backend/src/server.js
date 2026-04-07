@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import config from "./shared/config/index.js";
 import logger from "./shared/config/logger.js";
-import MongoConnection from "./shared/config/mongodb.js";
+import mongodb from "./shared/config/mongodb.js";
 import postgres from "./shared/config/postgres.js";
 import rabbitmq from "./shared/config/rabbitmq.js";
 import errorHandler from "./shared/middlewares/errorHandler.js";
@@ -13,7 +13,7 @@ import ResponseFormatter from "./shared/utils/responseFormatter.js";
  * Initialize Express app
  */
 const app = express();
-const mongodb = new MongoConnection();
+// const mongodb = new MongoConnection();
 
 /**
  * Middlewares
@@ -78,13 +78,13 @@ async function initializeConnection() {
   try {
     logger.info("Initializing database connections...");
 
-    // Connect to MongoDB;
+    // Connect to MongoDB
     await mongodb.connect();
 
-    // Connect to PG;
+    // Connect to PG
     await postgres.testConnection();
 
-    // Connect to RabbitMQ;
+    // Connect to RabbitMQ
     await rabbitmq.connect();
 
     logger.info("All connections established successfully");
