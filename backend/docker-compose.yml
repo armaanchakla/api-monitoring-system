@@ -104,7 +104,8 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./logs:/app/logs
+      # - ./logs:/app/logs
+      - .:/app #for develeopment
     networks:
       - api-monitoring-network
     depends_on:
@@ -112,7 +113,7 @@ services:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
-    restart: no #unless-stopped
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 30s

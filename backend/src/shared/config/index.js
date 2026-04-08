@@ -34,7 +34,7 @@ const config = {
 
   // Authentication
   jwt: {
-    secret: process.env.JWT_SECRET || "SABKA_VALINTINE_WEEK_KAISE_JA_RAHA_HAI",
+    secret: process.env.JWT_SECRET || "armaan-secret",
     expiresIn: process.env.JWT_EXPIRES_IN || "24h",
   },
 
@@ -42,6 +42,13 @@ const config = {
   rateLimit: {
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000", 10), // 15 minutes
     maxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "1000", 10), // 1000 req / 15 min per IP
+  },
+
+  // Cookie
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    expiresIn: 24 * 60 * 60 * 1000,
   },
 };
 
